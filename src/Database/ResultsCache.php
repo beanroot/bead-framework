@@ -556,7 +556,7 @@ class ResultsCache implements Iterator, ArrayAccess, Countable
 	/**
 	 * @throws LogicException - ResultsCache instances are read-only.
 	 */
-	public function offsetSet($offset, $value)
+	public function offsetSet($offset, $value): void
 	{
 		throw new LogicException("ResultsCache instances are not writable.");
 	}
@@ -564,7 +564,7 @@ class ResultsCache implements Iterator, ArrayAccess, Countable
 	/**
 	 * @throws LogicException - ResultsCache instances are read-only.
 	 */
-	public function offsetUnset($offset)
+	public function offsetUnset($offset): void
 	{
 		throw new LogicException("ResultsCache instances are not writable.");
 	}
@@ -577,7 +577,7 @@ class ResultsCache implements Iterator, ArrayAccess, Countable
 	 * @return array
 	 * @throws OutOfBoundsException if the offset is not valid
 	 */
-	public function offsetGet($offset): ?array
+	public function offsetGet($offset): mixed
 	{
 		if (!$this->offsetExists($offset)) {
 			throw new OutOfBoundsException("The offset {$offset} is out of bounds.");
